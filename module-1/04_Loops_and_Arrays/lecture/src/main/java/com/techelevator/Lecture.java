@@ -91,6 +91,7 @@ public class Lecture {
         return 0;
     }
 
+
     /*
     9. How many times do we go through this loop? Change the number in the logic expression so that it returns true.
     */
@@ -100,7 +101,7 @@ public class Lecture {
 
         int counter = 0; // Must be started outside the block so that have access to it after the block
 
-        for (int i = 0; i < arrayToLoopThrough.length; i++) {
+        while (counter < arrayToLoopThrough.length) {
             counter++;
         }
 
@@ -130,6 +131,9 @@ public class Lecture {
         int[] arrayToLoopThrough = { 4, 23, 9, 4, 33 };
 
         int counter = 0;
+        do {
+            final int i = counter++;
+        } while (counter < 110);
 
         //     Start;       Keep going while         Increment by one;
         for (int i = 0; i <= arrayToLoopThrough.length; i++) {
@@ -154,5 +158,19 @@ public class Lecture {
         }
 
         return sum == 12;
+    }
+
+    public void addEvens() {
+        int[] values = { 45, 1, 2, 0, 7, 6, 18};
+
+        int sum = 0;
+
+        for(int i = 0; i < values.length; i++) {
+            if (values[i] % 2 == 0) {
+                sum = sum + values[i];
+            }
+        }
+
+        System.out.println(sum);
     }
 }
