@@ -1,6 +1,13 @@
 package com.techelevator;
 
 public class Lecture {
+
+    public static void main(String[] args) {
+        Lecture lecture = new Lecture();
+        int x = lecture.returnNumberAfterAddThreeAndAddFive(3, true, true);
+        System.out.println(x);
+    }
+
     /*
     1. This method is named returnNotOne and it returns an int. Change
     it so that it returns something other than a 1.
@@ -92,13 +99,13 @@ public class Lecture {
     */
     public int returnNumberAfterAddThreeAndAddFive(int number, boolean addThree, boolean addFive) {
         if (addThree) {
-            number = number + 1;
+            number = number + 3;
         }
 
         // We can't use an else here. They could both be true, so we have to check each one.
 
         if (addFive) {
-            number += 1;
+            number += 5;
         }
 
         return number;
@@ -108,20 +115,31 @@ public class Lecture {
     11. Write an if statement that returns "Fizz" if the parameter is 3 and returns an empty String for anything else.
     */
     public String returnFizzIfThree(int number) {
-        return "";
+        // if (number == 3) {
+        // return "Fizz";
+        //}
+        // return "";
+        String result = "";
+        if (number == 3) {
+            result = "Fizz";
+        }
+        return result;
     }
 
     /*
     12. Now write the above using the Ternary operator ?:. If you're not sure what this is, you can Google it.
     */
     public String returnFizzIfThreeUsingTernary(int number) {
-        return "";
+        return number == 3 ? "Fizz": "";
     }
 
     /*
     13. Write an if/else statement that returns "Fizz" if the parameter is 3, "Buzz" if the parameter is 5 and an empty String for anything else.
     */
     public String returnFizzOrBuzzOrNothing(int number) {
+        if (number == 3) {
+            return "Buzz";
+        }
         return "";
     }
 
