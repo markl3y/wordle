@@ -9,10 +9,12 @@ package com.techelevator;
  Please enter the amount tendered: 100.00
  The change required is 76.35
  */
+
 public class MakeChange {
 
 	public static void main(String[] args) {
 
 	}
+	static void promptUser
 
 }

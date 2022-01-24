@@ -16,17 +16,25 @@ class DiscountCalculator {
         // Prompt the user for a discount amount
         // The answer needs to be saved as a double
         System.out.print("Enter the discount amount (w/out percentage): ");
+        String discountStr = scanner.nextLine();
+        double discount = Double.parseDouble(discountStr);
+        System.out.format("%5.3f%n", discount);
 
 
 
         // Prompt the user for a series of prices
         System.out.print("Please provide a series of prices (space separated): ");
-
-
-
-
-
-
+        String pricesStr = scanner.nextLine();
+        String[] prices = pricesStr.split(" ");
+        System.out.println(" Discount " + "  Amount  " + " AmountDiscount");
+        System.out.println("**********" + "**********" + "***************");
+        for (int i = 0; i < prices.length ; i++)
+        {
+            double price = Double.parseDouble(prices[i]);
+            double discountAmount = price * (discount / 100);
+            System.out.format("%10.2f %10.2f %10.2f%n", discount, price, discountAmount);
+        }
+        System.out.println("%nHave a nice day!");
     }
 
 }

@@ -14,6 +14,7 @@ public class Lecture {
 		 * is not the case for most classes */
 
 		/* create an new instance of String using a literal */
+		String llamaName = "Ringo";
 
 		
 		System.out.println();
@@ -35,7 +36,9 @@ public class Lecture {
 		 * toUpperCase
 		 * trim
 		 */
+		if (llamaName == "Y") {
 
+		}
 		System.out.println();
 		System.out.println("**********************");
 		System.out.println("****** EQUALITY ******");
