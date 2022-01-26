@@ -11,6 +11,8 @@ public class Lecture {
 		System.out.println("       LISTS");
 		System.out.println("####################");
 
+		List<String> names = new ArrayList<>();
+
 
 		System.out.println("####################");
 		System.out.println("Lists are ordered");
@@ -25,6 +27,8 @@ public class Lecture {
 		System.out.println("####################");
 		System.out.println("Lists allow elements to be inserted in the middle");
 		System.out.println("####################");
+
+		List<String> planets
 
 
 		System.out.println("####################");
