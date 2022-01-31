@@ -16,21 +16,77 @@ public class Exercises {
 	 array2List( {"Red", "Orange", "Yellow"} )  ->  ["Red", "Orange", "Yellow"]
 	 array2List( {"Left", "Right", "Forward", "Back"} )  ->  ["Left", "Right", "Forward", "Back"]
 	 */
+
+	//We are declaring a public method that returns a List of Strings, that is called array2List... which takes a String Array called stringArray as an argument.
 	public List<String> array2List(String[] stringArray) {
+		//We are declaring a new variable of type List, which will contain Strings, and we are calling it fruits, and it is equal to a new instance of ArrayList, which will take Strings.
 		List<String> fruits = new ArrayList<String>();
+		//For every index of stringArray, we are adding the corresponding string to our list called fruits.
 		for (int i = 0; i < stringArray.length; i++) {
 			fruits.add(stringArray[i]);
 		}
 		return fruits;
 	}
 
-	/*
-	 Given a list of Strings, return an array containing the same Strings in the same order
-	 list2Array( ["Apple", "Orange", "Banana"] )  ->  {"Apple", "Orange", "Banana"}
-	 list2Array( ["Red", "Orange", "Yellow"] )  ->  {"Red", "Orange", "Yellow"}
-	 list2Array( ["Left", "Right", "Forward", "Back"] )  ->  {"Left", "Right", "Forward", "Back"}
-	 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public String[] namesOfDeadPeople(String locationOfWorld) {
+		String[] namesOfDeadPeople;
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	public String[] list2Array(List<String> stringList) {
+		String[] words = new String[stringList.size()];
+		int indexCounter = 0;
+		for (String word : stringList) {
+			words[indexCounter] = word;
+			indexCounter++;
+		}
+		return words;
+	}
+
+
 		String[] fruits = new String[stringList.size()];
 		int i = 0;
 		for (String fruit : stringList) {
@@ -38,10 +94,9 @@ public class Exercises {
 			i++;
 		}
 		return fruits;
-	}
 
 	/*
-	 Given an array of Strings, return an ArrayList containing the same Strings in the same order
+	 Given an array of Strings, return an ArrayList containing the same Strings in the same order //we know we're dealing with a for loop. and we know theres an if in there somewhere
 	 except for any words that contain exactly 4 characters.
 	 no4LetterWords( {"Train", "Boat", "Car"} )  ->  ["Train", "Car"]
 	 no4LetterWords( {"Red", "White", "Blue"} )  ->  ["Red", "White"]
@@ -49,9 +104,9 @@ public class Exercises {
 	 */
 	public List<String> no4LetterWords(String[] stringArray) {
 		List<String> noFourLetterWords = new ArrayList<String>();
-		for (int i = 0; i < stringArray.length; i++) {
-			if (stringArray[i].length() != 4) {
-				noFourLetterWords.add(stringArray[i]);
+		for (int indexCounter = 0; indexCounter < stringArray.length; indexCounter++) {
+			if (stringArray[indexCounter].length() != 4) {
+				noFourLetterWords.add(stringArray[indexCounter]); [apple banana four pew] - > [apple banana pew]
 			}
 		}
 		return noFourLetterWords;
@@ -122,6 +177,13 @@ public class Exercises {
 		return (counter >= 2);
 	}
 
+
+
+
+
+																			   ****************
+													03                    ***************************
+													02 _ variables     ************************************
 	/*
 	 Given an array of Integers, return a List that contains the same Integers (as Strings). Except any multiple of 3
 	must be replaced by the String "Fizz", any multiple of 5 must be replaced by the String "Buzz",
@@ -177,5 +239,19 @@ public class Exercises {
 		}
 		return weaveInts;
 	}
+
+
+
+
+
+
+
+
+	//HowManyMinutesDoWeSpendOnThings.java
+		int numminutes = Examples.numberOfMinutesInTheShower(true);
+
+
+	System.out.println("We spend" + numbminutes + "in the shower.");
+
 
 }
