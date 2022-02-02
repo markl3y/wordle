@@ -17,4 +17,8 @@ public class FarmAnimal {
 		return sound;
 	}
 
+	public String getAorAn() {
+		return "a";
+	}
+
 }
