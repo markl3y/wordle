@@ -10,4 +10,7 @@ public class Chicken extends FarmAnimal {
 		System.out.println("Chicken laid an egg!");
 	}
 
+	public String getFavFood() {
+		return "Seed";
+	}
 }
