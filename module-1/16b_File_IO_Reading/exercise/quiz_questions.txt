@@ -4,7 +4,6 @@ Which country do cities of Perth, Adelade and Brisbane belong to?&England&Irelan
 What geometric shape is generally used for stop signs?&Circle&Hexagon&Octagon*&Pentagon
 What is "cynophobia"?&Fear of dogs*&Fear of geese&Fear of heights&Fear of fire
 Who named the Pacific Ocean?&Lief Erickson&William Penn&Christopher Columbus&Ferdinand Magellan*
-How many countries still have Shilling as currency?
 What is the name of the man who launched eBay back in 1995?&Pierre Omidyar*&Mark Zuckerburg&Elon Musk&Sean Parker
 What is the name of the biggest technology company in South Korea?&LG Electronics&Kia Motors&Samsung Electronics*&Hyundai Motors
 Which animal can be seen on the Porsche logo?&Donkey&Leopard&Ram&Horse*
@@ -13,8 +12,7 @@ The first dictionary was written by?&Howard Merriam&Donald Webster&Robert Cawdre
 Worship of Krishna is observed by which Religious Faith?&Buddhism&Hinduism*&Zoroastrianism&Taoism
 What is the name of the largest ocean on earth&Atlantic Ocean&Indian Ocean&Pacific Ocean*&Artic Ocean
 Demolition of the Berlin wall separating East and West Germany began in what year?&1979&1989*&1991&1993
-What is the rarest M&M color?&Blue&Yellow&Orange&Brown*
-What is the common name for dried plums?
+What is the rarest M and M color?&Blue&Yellow&Orange&Brown*
 Which country consumes the most chocolate per capita?&USA&Germany&Switzerland*&France
 What is the name given to Indian food cooked over charcoal in a clay oven?&Masala&Tandoori*&Paneer&Mutar
 What was the first soft drink in space?&Sprite&Pepsi&Doctor Pepper&Coca Cola*
