@@ -21,7 +21,7 @@ public class JdbcTimesheetDao implements TimesheetDao {
         Timesheet timesheet = null;
         String sql = "SELECT timesheet_id, employee_id, project_id, date_worked, hours_worked, billable, description " +
                      "FROM timesheet " +
-                     "WHERE timesheet_id = ?";
+                     "WHERE timesheet_id = ?;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, timesheetId);
         if (results.next()) {
             timesheet = mapRowToTimesheet(results);
@@ -37,7 +37,7 @@ public class JdbcTimesheetDao implements TimesheetDao {
                      "WHERE employee_id = ? " +
                      "ORDER BY timesheet_id;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, employeeId);
-        if (results.next()) {
+        while (results.next()) {
             Timesheet timesheet = mapRowToTimesheet(results);
             timesheets.add(timesheet);
         }
@@ -49,7 +49,7 @@ public class JdbcTimesheetDao implements TimesheetDao {
         List<Timesheet> timesheets = new ArrayList<>();
         String sql = "SELECT timesheet_id, employee_id, project_id, date_worked, hours_worked, billable, description " +
                      "FROM timesheet " +
-                     "WHERE employee_id = ? " +
+                     "WHERE project_id = ? " +
                      "ORDER BY timesheet_id;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, projectId);
         while (results.next()) {
@@ -69,19 +69,19 @@ public class JdbcTimesheetDao implements TimesheetDao {
         return getTimesheet(newId);
     }
 
-    @Override
+    @Override //Here's the bug, it doesn't update billable
     public void updateTimesheet(Timesheet updatedTimesheet) {
         String sql = "UPDATE timesheet " +
-                     "SET employee_id = ?, project_id = ?, date_worked = ?, hours_worked = ?, description = ? " +
-                     "WHERE timesheet_id = ?";
+                     "SET employee_id = ?, project_id = ?, date_worked = ?, hours_worked = ?, billable = ?, description = ? " +
+                     "WHERE timesheet_id = ?;";
         jdbcTemplate.update(sql, updatedTimesheet.getEmployeeId(), updatedTimesheet.getProjectId(),
-                updatedTimesheet.getDateWorked(), updatedTimesheet.getHoursWorked(), updatedTimesheet.getDescription(),
+                updatedTimesheet.getDateWorked(), updatedTimesheet.getHoursWorked(), updatedTimesheet.isBillable(), updatedTimesheet.getDescription(),
                 updatedTimesheet.getTimesheetId());
     }
 
     @Override
     public void deleteTimesheet(Long timesheetId) {
-        String sql = "DELETE FROM timesheet WHERE timesheet_id = ?";
+        String sql = "DELETE FROM timesheet WHERE timesheet_id = ?;";
         jdbcTemplate.update(sql, timesheetId);
     }
 
@@ -90,7 +90,7 @@ public class JdbcTimesheetDao implements TimesheetDao {
         double billableHours = 0;
         String sql = "SELECT SUM(hours_worked) AS billable_hours " +
                      "FROM timesheet " +
-                     "WHERE employee_id = ? AND project_id = ?";
+                     "WHERE employee_id = ? AND project_id = ? AND billable = true;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, employeeId, projectId);
         if (results.next()) {
             billableHours = results.getDouble("billable_hours");

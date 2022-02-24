@@ -1,43 +1,94 @@
 Bug 1
 -----
-Test that demonstrates problem:
+Test that demonstrates problem: getTimesheetsByEmployeeId_returns_list_of_all_timesheets_for_employee
 
-Expected output:
+Message: getTimesheetsByEmployeeId returned wrong number of timesheets 
 
-Actual output:
+Expected output: 2
+
+Actual output: 1
 
 How did you fix this bug?
+
+if (results.next()) {
+            Timesheet timesheet = mapRowToTimesheet(results);
+            timesheets.add(timesheet);
+        }
+
+was changed to
+
+while (results.next()) {
+            Timesheet timesheet = mapRowToTimesheet(results);
+            timesheets.add(timesheet);
+        }
 
 
 Bug 2
 -----
-Test that demonstrates problem:
+Test that demonstrates problem: getTimesheetsByProjectId_returns_list_of_all_timesheets_for_project
 
-Expected output:
+Message: getTimesheetsByProjectId returned wrong number of timesheets 
 
-Actual output:
+Expected output: 3
+
+Actual output: 2
 
 How did you fix this bug?
 
+String sql = "SELECT timesheet_id, employee_id, project_id, date_worked, hours_worked, billable, description " +
+                     "FROM timesheet " +
+                     "WHERE employee_id = ? " +
+                     "ORDER BY timesheet_id;";
+
+was changed to 
+
+String sql = "SELECT timesheet_id, employee_id, project_id, date_worked, hours_worked, billable, description " +
+                     "FROM timesheet " +
+                     "WHERE project_id = ? " +
+                     "ORDER BY timesheet_id;";
 
 Bug 3
 -----
-Test that demonstrates problem:
+Test that demonstrates problem: getBillableHours_returns_correct_total
 
-Expected output:
+Expected output: 0.0
 
-Actual output:
+Actual output: 2.0
 
 How did you fix this bug?
 
+        String sql = "SELECT SUM(hours_worked) AS billable_hours " +
+                     "FROM timesheet " +
+                     "WHERE employee_id = ? AND project_id = ?;";
+        
+was changed to 
+
+	String sql = "SELECT SUM(hours_worked) AS billable_hours " +
+                     "FROM timesheet " +
+                     "WHERE employee_id = ? AND project_id = ? AND billable = true;";
 
 Bug 4
 -----
-Test that demonstrates problem:
+Test that demonstrates problem: updated_timesheet_has_expected_values_when_retrieved
 
-Expected output:
+Message: updateTimesheet did not update is billable in database
 
-Actual output:
+Expected output: False
+
+Actual output: True
 
 How did you fix this bug?
+
+	String sql = "UPDATE timesheet " +
+                     "SET employee_id = ?, project_id = ?, date_worked = ?, hours_worked = ?, description = ? " +
+                     "WHERE timesheet_id = ?;";
+
+was changed to 
+
+	String sql = "UPDATE timesheet " +
+                     "SET employee_id = ?, project_id = ?, date_worked = ?, hours_worked = ?, billable = ?, description = ? " +
+                     "WHERE timesheet_id = ?;";
+        jdbcTemplate.update(sql, updatedTimesheet.getEmployeeId(), updatedTimesheet.getProjectId(),
+                updatedTimesheet.getDateWorked(), updatedTimesheet.getHoursWorked(), updatedTimesheet.isBillable(), 		updatedTimesheet.getDescription(),
+                updatedTimesheet.getTimesheetId());
 
