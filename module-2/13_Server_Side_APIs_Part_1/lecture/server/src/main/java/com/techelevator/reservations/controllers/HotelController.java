@@ -5,6 +5,9 @@ import com.techelevator.reservations.dao.MemoryHotelDao;
 import com.techelevator.reservations.dao.MemoryReservationDao;
 import com.techelevator.reservations.dao.ReservationDao;
 import com.techelevator.reservations.model.Hotel;
+import com.techelevator.reservations.model.Reservation;
+import org.apache.tomcat.util.http.parser.MediaType;
+import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,6 +41,11 @@ public class HotelController {
     @RequestMapping(path = "/hotels/{id}", method = RequestMethod.GET)
     public Hotel get(@PathVariable int id) {
         return hotelDao.get(id);
+    }
+
+    @PutMapping("/reservations/{id}")
+    public Reservation addReservation(@PathVariable int id, @RequestBody Reservation reservation) {
+        BeanUtils.copyProperties(reservation, reservationDao);
     }
 
 }
