@@ -58,6 +58,6 @@ public class AuctionController {
     @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
     public void delete(@Valid @PathVariable int id) throws AuctionNotFoundException {
         dao.delete(id);
-    }
+
 
 }
